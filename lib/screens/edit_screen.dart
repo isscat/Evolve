@@ -36,13 +36,13 @@ class _EditScreenState extends State<EditScreen> {
   GlobalKey imageKey = GlobalKey();
   String path;
   //text input data
-  String _text = "Kill Them With Kindness";
+  String _text = "Write Something Nice!";
   TextStyle font = fonts[0];
   double textSize = 30.0;
-  bool isTextInputOpen = true;
+
   bool isSave = false;
   //frame data
-  String imageChose = "1";
+  String imageChose = "0";
   void changeFrame(String frameChose) {
     setState(() {
       imageChose = frameChose;
@@ -86,8 +86,6 @@ class _EditScreenState extends State<EditScreen> {
           SaveShare(
             onSaveGallery: onSaveGallery,
             onShare: onSave,
-            onDone: onDone,
-            isSave: isSave,
           ),
           FramesList(
             changeFrame: changeFrame,
@@ -154,13 +152,6 @@ class _EditScreenState extends State<EditScreen> {
         text: 'My optional text.');
   }
 
-  void onDone() {
-    setState(() {
-      isTextInputOpen = !isTextInputOpen;
-      isSave = !isSave;
-    });
-  }
-
   buildGestureDetector() {
     return GestureDetector(
       onVerticalDragUpdate: (DragUpdateDetails dd) {
@@ -187,26 +178,6 @@ class _EditScreenState extends State<EditScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  buildTextWidget() {
-    return Center(
-      child: Stack(
-        children: [
-          Positioned(
-            top: top,
-            left: left,
-            child: Container(
-              height: 150,
-              width: MediaQuery.of(context).size.width,
-              child: Text(_text,
-                  style: TextStyle(
-                      fontFamily: font.fontFamily, fontSize: textSize)),
-            ),
-          ),
-        ],
       ),
     );
   }

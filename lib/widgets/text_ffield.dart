@@ -17,15 +17,14 @@ class TextFfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: false,
+      focusNode: FocusNode(),
+      enableInteractiveSelection: false,
       initialValue: fieldText,
       decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          counterText: fieldText.length.toString()),
-      maxLines: 100,
-      maxLength: 150,
+          border: InputBorder.none, counterText: fieldText.length.toString()),
+      maxLines: 5,
+      maxLength: 20,
       style: TextStyle(
           height: fontFamily.height,
           fontFamily: fontFamily.fontFamily,
